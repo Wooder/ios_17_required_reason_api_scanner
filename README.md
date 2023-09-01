@@ -12,3 +12,5 @@ Example Output:
 
 `Found potentially required reason API usage 'UserDefaults' in './ViewController.swift'
 Line numbers: 28`
+
+See the following medium post for more details: https://jochen-holzer.medium.com/embrace-the-evolution-preparing-your-ios-app-for-the-required-reason-api-38f2d12bbce5?source=friends_link&sk=d146c22f3e18c6551231f4b55c934b05
