@@ -25,7 +25,7 @@ It will find the `.app`, `.framework` and `.a` binaries.
 Keep in mind that the symbols found in the app (`.app`) will be duplicated from the ones found in the static libraries `.a` since they are statically linked.
 
 Usage:
-`sh required_reason_api_scanner_binary.sh {directory}`
+`sh required_reason_api_binary_scanner.sh {directory}`
 
 Example output:
 ```
