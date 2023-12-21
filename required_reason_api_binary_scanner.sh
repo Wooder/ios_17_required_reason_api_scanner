@@ -75,7 +75,7 @@ for binary in "${binaries[@]}"; do
     fi
     used_symbols=()
     for symbol in "${symbols[@]}"; do
-        if nm "$binary" 2>/dev/null | grep -E "$symbol$" >/dev/null; then
+        if nm "$binary" 2>/dev/null | xcrun swift-demangle | grep -E "$symbol$" >/dev/null; then
             used_symbols+=($symbol)
         fi
     done
