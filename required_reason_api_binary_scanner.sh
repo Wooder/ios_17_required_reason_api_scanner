@@ -40,19 +40,26 @@ function join_by {
 
 function search_binaries_with_directory {
     extension=$1
-    for binary in $(find . -iname "*.$extension"); do
-        name=$(basename $binary);
-        binary_name=$(echo $name | sed "s/.$extension//");
-        binaries+=("$(dirname $binary)/${name}/${binary_name}")
-    done
+    tempfile=$(mktemp)
+    trap "rm -f $tempfile" EXIT
+    find . -iname "*.$extension" -print0 > "$tempfile"
+    while IFS= read -r -d '' binary; do
+        name=$(basename "$binary")
+        binary_name=$(echo "$name" | sed "s/.$extension//")
+        binaries+=("$(dirname "$binary")/${name}/${binary_name}")
+    done < "$tempfile"
 }
 
 function search_binaries_with_filename {
     extension=$1
-    for binary in $(find . -iname "*.$extension"); do
-        binaries+=($binary)
-    done
+    tempfile=$(mktemp)
+    trap "rm -f $tempfile" EXIT
+    find . -iname "*.$extension" -print0 > "$tempfile"
+    while IFS= read -r -d '' binary; do
+        binaries+=("$binary")
+    done < "$tempfile"
 }
+
 
 cd $1
 
@@ -69,7 +76,7 @@ echo "Analyzing binaries: ${binaries[@]}"
 echo '---'
 
 for binary in "${binaries[@]}"; do
-    if ! [ -f $binary ]; then
+    if ! [ -f "$binary" ]; then
         echo "binary '$binary' doesn't exist"
         exit 1
     fi
