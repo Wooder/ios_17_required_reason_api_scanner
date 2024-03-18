@@ -61,7 +61,7 @@ function search_binaries_with_filename {
 }
 
 
-cd $1
+cd "$1"
 
 declare -a binaries
 
