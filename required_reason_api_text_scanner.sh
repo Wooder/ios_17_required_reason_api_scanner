@@ -28,6 +28,7 @@ search_string=(#"creationDate"
                "statfs("
                "statvfs("
                "fstatfs("
+               "fstatvfs("
                "getattrlist("
                "fgetattrlist("
                "getattrlistat("
@@ -35,7 +36,7 @@ search_string=(#"creationDate"
                "UserDefaults"
                )
 
-# Function to search for equired reason API strings in a Swift files
+# Function to search for required reason API strings in a Swift files
 search_in_swift_file() {
     local file="$1"
 
