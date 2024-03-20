@@ -5,8 +5,9 @@ excluded_dirs=() # e.g. ("Pods" "3rdparty")
 
 # Global variable for search strings that may indicate a use of "iOS required reason API"
 # taken from here: https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api
-search_string=(#"creationDate" 
-               ".modificationDate" 
+search_string=(".creationDate"
+               ".creationDateKey"
+               ".modificationDate"
                ".fileModificationDate" 
                ".contentModificationDateKey" 
                ".creationDateKey"
@@ -35,6 +36,17 @@ search_string=(#"creationDate"
                "getattrlistat("
                "activeInputModes"
                "UserDefaults"
+               "NSUserDefaults"
+               "NSFileCreationDate"
+               "NSFileModificationDate"
+               "NSFileSystemFreeSize"
+               "NSFileSystemSize"
+               "NSURLContentModificationDateKey"
+               "NSURLCreationDateKey"
+               "NSURLVolumeAvailableCapacityForImportantUsageKey"
+               "NSURLVolumeAvailableCapacityForOpportunisticUsageKey"
+               "NSURLVolumeAvailableCapacityKey"
+               "NSURLVolumeTotalCapacityKey"
                )
 
 # Function to search for required reason API strings in a Swift files
@@ -82,7 +94,7 @@ traverse_and_search() {
         if [ -d "$item" ]; then
             # If it's a directory, call the function recursively
             traverse_and_search "$item"
-        elif [ -f "$item" ] && [[ "$item" == *.swift ]]; then
+        elif [ -f "$item" ] && ([[ "$item" == *.swift ]] || [[ "$item" == *.m ]] || [[ "$item" == *.h ]]); then
             # If it's a file with .swift extension, search for the strings
             search_in_swift_file "$item"
         fi
