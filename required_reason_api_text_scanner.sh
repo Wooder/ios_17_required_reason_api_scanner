@@ -47,6 +47,7 @@ search_string=(".creationDate"
                "NSURLVolumeAvailableCapacityForOpportunisticUsageKey"
                "NSURLVolumeAvailableCapacityKey"
                "NSURLVolumeTotalCapacityKey"
+               "AppStorage"
                )
 
 # Function to search for required reason API strings in a Swift files
