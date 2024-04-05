@@ -86,5 +86,7 @@ for binary in "${binaries[@]}"; do
             used_symbols+=($symbol)
         fi
     done
-    echo "Used symbols in binary $binary: $(join_by ', ' ${used_symbols[@]})"
+    if [ ${#used_symbols[@]} -gt 0 ]; then
+        echo "Used symbols in binary $binary: $(join_by ', ' ${used_symbols[@]})"
+    fi
 done
