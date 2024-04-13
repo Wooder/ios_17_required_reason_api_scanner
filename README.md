@@ -17,6 +17,18 @@ Line numbers: 28`
 
 See the following medium post for more details: https://jochen-holzer.medium.com/embrace-the-evolution-preparing-your-ios-app-for-the-required-reason-api-38f2d12bbce5?source=friends_link&sk=d146c22f3e18c6551231f4b55c934b05
 
+## Faster ripgrep-based text scanner
+
+This scan should produce similar results to the text-based scanner, but using [`ripgrep`](https://github.com/BurntSushi/ripgrep) for faster results, particularly useful for medium to large repositories - where the text scanner will take several minutes to complete, this scanner should still complete in a matter of seconds.
+
+Usage:
+
+With `ripgrep` installed, e.g. `brew install ripgrep`,
+
+`sh ripgrep_required_reason_api_text_scanner.sh {directory_name}`
+
+Output displays in the standard format of `grep`.
+
 ## Binary-based scanner
 
 This scanner looks for symbols in the binaries in DerivedData folder using `nm`.
