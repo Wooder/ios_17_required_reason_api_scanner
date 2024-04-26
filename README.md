@@ -41,7 +41,7 @@ Usage:
 
 Example output:
 ```
-sh required_reason_api_scanner_binary.sh \
+sh required_reason_api_binary_scanner.sh \
 ~/Library/Developer/Xcode/DerivedData/DemoSymbols-aymfeypsyhqwfuaieijkrqdeohcd/Build/Products/Debug-iphonesimulator
 
 > Analyzing binaries: ./DemoSymbols.app/DemoSymbols
