@@ -19,6 +19,10 @@ search_string=(
     "fstatat\("
     "lstat\("
     "getattrlistat\("
+    "NSFileCreationDate"
+    "NSFileModificationDate"
+    "NSURLContentModificationDateKey"
+    "NSURLCreationDateKey"
 
     # System boot time APIs
     # https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278394
@@ -39,6 +43,12 @@ search_string=(
     "getattrlist\("
     "fgetattrlist\("
     "getattrlistat\("
+    "NSFileSystemFreeSize"
+    "NSFileSystemSize"
+    "NSURLVolumeAvailableCapacityForImportantUsageKey"
+    "NSURLVolumeAvailableCapacityForOpportunisticUsageKey"
+    "NSURLVolumeAvailableCapacityKey"
+    "NSURLVolumeTotalCapacityKey"
 
     # Active keyboard APIs
     # https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278400
@@ -48,16 +58,6 @@ search_string=(
     # https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401
     "^UserDefaults"
     "NSUserDefaults"
-    "NSFileCreationDate"
-    "NSFileModificationDate"
-    "NSFileSystemFreeSize"
-    "NSFileSystemSize"
-    "NSURLContentModificationDateKey"
-    "NSURLCreationDateKey"
-    "NSURLVolumeAvailableCapacityForImportantUsageKey"
-    "NSURLVolumeAvailableCapacityForOpportunisticUsageKey"
-    "NSURLVolumeAvailableCapacityKey"
-    "NSURLVolumeTotalCapacityKey"
 )
 
 # Match whole words only
